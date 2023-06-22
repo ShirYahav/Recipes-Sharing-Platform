@@ -1,0 +1,66 @@
+<div class="box">
+
+    <form (ngSubmit)="add(addRecipeForm)" #addRecipeForm="ngForm" >
+
+        <h2>Add Recipe</h2>
+
+
+        <label>Title: </label>
+        <input type="text" name="title" [(ngModel)]="recipe.title" required minlength="3" maxlength="30" pattern=".*\S.*" #titleBox="ngModel">
+        <span *ngIf="titleBox.touched && titleBox.errors?.['required']">Missing title</span>
+        <span *ngIf="titleBox.touched && titleBox.errors?.['minlength']">Title too short</span>
+        <span *ngIf="titleBox.touched && titleBox.errors?.['pattern']">Invalid title</span>
+        <span *ngIf="titleBox.touched && titleBox.errors?.['maxlength']">Title too long</span>
+
+        <label>Description: </label>
+        <input type="text" name="description" [(ngModel)]="recipe.description" required minlength="8" maxlength="1500" pattern=".*\S.*" #descriptionBox="ngModel">
+        <span *ngIf="descriptionBox.touched && descriptionBox.errors?.['required']">Missing description</span>
+        <span *ngIf="descriptionBox.touched && descriptionBox.errors?.['minlength']">Description too short</span>
+        <span *ngIf="descriptionBox.touched && descriptionBox.errors?.['maxlength']">Description too long</span>
+        <span *ngIf="descriptionBox.touched && descriptionBox.errors?.['pattern']">Invalid description</span>
+        
+        <label>Ingredients: </label>
+        <input type="text" name="ingredients" [(ngModel)]="recipe.ingredients" required minlength="8" maxlength="2000" pattern=".*\S.*" #ingredientsBox="ngModel">
+        <span *ngIf="ingredientsBox.touched && ingredientsBox.errors?.['required']">Missing ingredients</span>
+        <span *ngIf="ingredientsBox.touched && ingredientsBox.errors?.['minlength']">Ingredients too short</span>
+        <span *ngIf="ingredientsBox.touched && ingredientsBox.errors?.['maxlength']">Ingredients too long</span>
+        <span *ngIf="ingredientsBox.touched && ingredientsBox.errors?.['pattern']">Invalid ingredients</span>
+
+        <label>Instructions: </label>
+        <input type="text" name="instructions" [(ngModel)]="recipe.instructions" required minlength="8" maxlength="2000" pattern=".*\S.*" #instructionsBox="ngModel">
+        <span *ngIf="instructionsBox.touched && instructionsBox.errors?.['required']">Missing instructions</span>
+        <span *ngIf="instructionsBox.touched && instructionsBox.errors?.['minlength']">Instructions too short</span>
+        <span *ngIf="instructionsBox.touched && instructionsBox.errors?.['maxlength']">Instructions too long</span>
+        <span *ngIf="instructionsBox.touched && instructionsBox.errors?.['pattern']">Invalid instructions</span>
+        
+        <label>Total Time: </label>
+        <input type="text" name="totalTime" [(ngModel)]="recipe.totalTime" required minlength="3" maxlength="10" pattern=".*\S.*" #totalTimeBox="ngModel">
+        <span *ngIf="totalTimeBox.touched && totalTimeBox.errors?.['required']">Missing total time</span>
+        <span *ngIf="totalTimeBox.touched && totalTimeBox.errors?.['minlength']">Total Time too short</span>
+        <span *ngIf="totalTimeBox.touched && totalTimeBox.errors?.['maxlength']">Total Time too long</span>
+        <span *ngIf="totalTimeBox.touched && totalTimeBox.errors?.['pattern']">Invalid total time</span>
+
+        <label>Select Difficulty Level: </label>
+        <select name="difficulty" [(ngModel)]="recipe.difficulty" required #difficultyBox="ngModel">
+            <option disabled selected>Select level</option>
+            <option value="Easy">Easy</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Hard">Hard</option>
+        </select>
+        <span *ngIf="difficultyBox.touched && difficultyBox.errors?.['required']">Missing category</span>
+
+
+        <label>Servings: </label>
+        <input type="number" name="servings" [(ngModel)]="recipe.servings" step="1" required min="0" max="900" #servingsBox="ngModel">
+        <span *ngIf="servingsBox.touched && servingsBox.errors?.['required']">Missing servings</span>
+        <span *ngIf="servingsBox.touched && servingsBox.errors?.['min']">Servings can't be negative</span>
+        <span *ngIf="servingsBox.touched && servingsBox.errors?.['max']">Servings can't exceed 900</span>
+
+        <label>Image: </label>
+        <input class="imageInput" type="file" accept="image/*" name="image" required #imageBox>
+
+        <button [disabled]="addRecipeForm.invalid">Add</button>
+
+    </form>
+
+</div>

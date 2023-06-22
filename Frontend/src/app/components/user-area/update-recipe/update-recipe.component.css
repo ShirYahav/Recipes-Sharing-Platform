@@ -1,0 +1,88 @@
+
+h2 {
+    font-size: 35px;
+    color:var(--primary-color);
+    margin-bottom: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 170px;
+
+}
+
+label { 
+    margin-bottom: -21px;
+    color:var(--primary-color);
+}
+
+input {
+    width: 50%; 
+    margin-top: 20px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid var(--primary-color);
+    background-color: transparent;
+    color: black;
+    margin-bottom: 20px;
+    white-space: pre-wrap;
+}
+
+select {
+    width: 50%; 
+    margin-top: 20px;
+    height: 45px;
+    border-radius: 8px;
+    border: 2px solid var(--primary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+button {
+    width: 130px; 
+    margin: 20px;
+    margin-bottom: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageInput {
+    border:none;
+}
+
+input[type=file]::file-selector-button {
+    width: 300px; 
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid var(--primary-color);
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    padding: 5px;
+}
+
+::placeholder {
+    display: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+}

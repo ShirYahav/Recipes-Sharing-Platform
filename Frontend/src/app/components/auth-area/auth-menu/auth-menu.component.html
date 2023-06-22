@@ -1,0 +1,15 @@
+<div>
+
+    <ng-container *ngIf="!user">
+        <a routerLink="/login">Login</a>
+        <span> | </span>
+        <a routerLink="/register">Register</a>
+    </ng-container>
+
+    <ng-container *ngIf="user">
+        <a routerLink="/user-page"> My Recipes </a>
+        <span> | </span>
+        <a routerLink="/logout">Logout</a>
+    </ng-container>
+    
+</div>

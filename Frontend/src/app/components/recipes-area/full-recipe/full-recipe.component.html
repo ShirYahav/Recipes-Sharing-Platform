@@ -1,0 +1,34 @@
+<div class="recipe">
+    <img [src]="recipeImage + recipe?.imageName" />
+    <h4>{{recipe?.title}}</h4>
+    <div class="recipe-basic-info">
+        <p>
+            <mat-icon class="icon">timer</mat-icon>
+            Total time: {{recipe?.totalTime}}
+        </p>
+        <p>
+            <mat-icon class="icon">check</mat-icon>
+            Difficulty: {{recipe?.difficulty}}
+        </p>
+        <p>
+            <mat-icon class="icon">groups</mat-icon>
+            Servings: {{recipe?.servings}}
+        </p>
+        <p>
+            <mat-icon class="icon">comment</mat-icon>
+            comments
+        </p>
+    </div>
+    <div class="recipe-info">
+        <p class="description">{{recipe?.description}}</p>
+        <h3>Ingredients</h3>
+        <p [innerHTML]="addLineBreaks(recipe?.ingredients)"></p>
+        <h3>Instructions</h3>
+        <p>{{recipe?.instructions}}</p>
+        <p>Recipe Made By: {{recipe?.user?.firstName}} {{recipe?.user?.lastName}}</p>
+    </div>
+    <h4 class="enjoy">Enjoy!</h4>
+
+    <a routerLink="/add-rating/{{_id}}"><h6> <mat-icon>add</mat-icon> Add a review </h6></a>
+    <app-ratings-list [recipeId]="_id"></app-ratings-list>
+</div>

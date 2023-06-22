@@ -1,0 +1,35 @@
+<div>
+    
+    <h2>Register</h2>
+
+    <form (ngSubmit)="submit()" #registerForm="ngForm" >
+        
+        <ng-container>
+
+            <input type="text" name="firstName" placeholder="First Name" required pattern="^([a-zA-Z]*)$" [(ngModel)]="user.firstName" #firstNameBox="ngModel"/>
+            <span *ngIf="firstNameBox.errors?.['required'] && firstNameBox.touched">Missing First Name</span>
+            <span *ngIf="firstNameBox.errors?.['pattern'] && firstNameBox.touched">Should include first name only</span>
+    
+            <input type="text" name="lastName" placeholder="last Name" required pattern="^([a-zA-Z]*)$" [(ngModel)]="user.lastName" #lastNameBox="ngModel"/>
+            <span *ngIf="lastNameBox.errors?.['required'] && lastNameBox.touched">Missing Last Name</span>
+            <span *ngIf="lastNameBox.errors?.['pattern'] && lastNameBox.touched">Should include last name only</span>
+
+        <input type="email" name="email" placeholder="Email" required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" [(ngModel)]="user.email" #emailBox="ngModel"/>
+        <span *ngIf="emailBox.errors?.['required'] && emailBox.touched">Missing Email</span>
+        <span *ngIf="emailBox.errors?.['pattern'] && emailBox.touched">Invalid Email</span>
+
+
+        <input type="password" name="password" placeholder="Password" required minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" [(ngModel)]="user.password" #passwordBox="ngModel"/>
+        <span *ngIf="passwordBox.errors?.['required'] && passwordBox.touched">Missing Password</span>
+        <span *ngIf="passwordBox.errors?.['pattern'] && passwordBox.touched">Password must contain at least one letter or number</span>
+        <span *ngIf="passwordBox.errors?.['minlength'] && passwordBox.touched">Password must contain at least 8 characters</span>
+
+        <button type="submit" class="submit" [disabled]="registerForm.invalid">
+            Register
+        </button>
+
+        </ng-container>
+
+    </form>
+
+</div>

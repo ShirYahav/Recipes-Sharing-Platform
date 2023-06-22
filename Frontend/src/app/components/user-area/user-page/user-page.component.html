@@ -1,0 +1,5 @@
+<div class="recipesList">
+    <a routerLink="/add-recipe"><mat-icon>add</mat-icon>Add Recipe</a>
+    <app-user-recipe-card *ngFor="let r of recipes" [recipe]="r" (deleteRecipe)="deleteRecipe($event)"></app-user-recipe-card>
+    <h4 *ngIf="recipes?.length === 0">Share Your Recipes Here !</h4>
+</div>

@@ -1,0 +1,36 @@
+<div class="recipeCard">
+
+    <div class="edit-delete">
+        <a class="update-recipe" routerLink="/update-recipe/{{recipe._id}}">
+            <button type="button"><mat-icon>create</mat-icon> Edit </button>
+        </a>
+        <button class="delete-recipe" type="button" (click)="onDelete()"><mat-icon>delete</mat-icon> Delete </button>
+    </div>
+
+    <a class="recipe-link" [routerLink]="['/recipe', recipe._id]">
+        <img [src]="recipeImage + recipe?.imageName" />
+        <h4>{{recipe?.title}}</h4>
+    </a>
+    <div class="recipe-info">
+        <p>
+            <mat-icon class="icon">timer</mat-icon>
+            Total time: {{recipe?.totalTime}}
+        </p>
+        <p>
+            <mat-icon class="icon">check</mat-icon>
+            Difficulty: {{recipe?.difficulty}}
+        </p>
+        <p>
+            <mat-icon class="icon">groups</mat-icon>
+            Servings: {{recipe?.servings}}
+        </p>
+        <p *ngIf="averageRating !==0" > Rating:
+            <ng-container *ngFor="let star of stars">
+                <mat-icon class="star-rate">star rate</mat-icon>
+            </ng-container>
+            <ng-container *ngIf="hasHalfStar">
+                <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="20"><path d="m480-307 146.667 89.001-39-166.668 129.001-112-170.001-15L480-669.001V-307ZM233-80l65-281L80-550l288-25 112-265 112 265 288 25-218 189 65 281-247-149L233-80Z"/></svg>
+            </ng-container>
+        </p>
+    </div>
+</div>

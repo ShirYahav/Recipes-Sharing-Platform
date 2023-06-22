@@ -1,0 +1,14 @@
+<div class="rating-line">
+    <div class="rate-name">
+        <div class="stars">
+            <p *ngFor="let star of getStarsArray(rating?.rating)">
+                <mat-icon>star rate</mat-icon>
+            </p>
+        </div>
+
+        
+        <p class="name">By: {{rating?.user?.firstName}} {{rating?.user?.lastName}}</p>
+    </div>
+    <p class="comment">{{rating?.comment}}</p>
+    <button *ngIf="rating.userId === loggedInUserId" class="delete-rating" type="button" (click)="onDelete()"><mat-icon>delete</mat-icon> Delete </button>
+</div>

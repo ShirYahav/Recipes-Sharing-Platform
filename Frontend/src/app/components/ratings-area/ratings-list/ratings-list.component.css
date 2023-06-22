@@ -1,0 +1,18 @@
+.ratings {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+h3 {
+    text-align: center;
+    font-size: 24px;
+    font-weight:500;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+h4 {
+    font-size: 16px;
+}

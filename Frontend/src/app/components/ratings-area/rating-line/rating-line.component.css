@@ -1,0 +1,54 @@
+.rating-line {
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    width: 338px;
+    height: 74px;
+    margin: 20px;
+    margin-top: -14px;
+}
+
+.stars { 
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+    color: var(--primary-color);
+}
+
+p {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.comment {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: -6px;
+}
+
+.name {
+    margin-right: 10px;
+}
+
+mat-icon {
+    transform: scale(0.8);
+}
+
+.rate-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 3px;
+}
+
+.delete-rating {
+    width: 338px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: end;
+    transform: scale(0.9);
+}

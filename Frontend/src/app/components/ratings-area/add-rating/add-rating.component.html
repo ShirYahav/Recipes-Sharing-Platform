@@ -1,0 +1,19 @@
+<div class="box">
+    <form (ngSubmit)="add(addRatingForm)" #addRatingForm="ngForm" >
+
+        <label>Star this recipe:</label>
+        <div class="stars">
+            <span class="star" (click)="rateStar(star.value)" *ngFor="let star of stars" [class.filled]="star.filled || star.value <= selectedStar" required>&#9733;</span>
+        </div>
+
+        <label>Comment: </label>
+        <input type="text" name="comment" [(ngModel)]="rating.comment" required minlength="4" maxlength="73" pattern=".*\S.*" #commentBox="ngModel">
+        <span *ngIf="commentBox.touched && commentBox.errors?.['required']">Missing comment</span>
+        <span *ngIf="commentBox.touched && commentBox.errors?.['minlength']">Comment is too short</span>
+        <span *ngIf="commentBox.touched && commentBox.errors?.['maxlength']">Comment is too long</span>
+        <span *ngIf="commentBox.touched && commentBox.errors?.['pattern']">Invalid comment</span>
+
+        <button [disabled]="addRatingForm.invalid">Add</button>
+
+    </form>
+</div>

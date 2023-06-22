@@ -1,0 +1,49 @@
+<div class="box">
+
+    <form (ngSubmit)="update()" [formGroup]="recipeForm" *ngIf="recipeForm" >
+
+        <h2>Update Recipe</h2>
+
+
+        <label>Title: </label>
+        <input type="text" name="title" [formControl]="titleInput" required minlength="3" pattern=".*\S.*">
+
+
+        <label>Description: </label>
+        <input type="text" name="description" [formControl]="descriptionInput" required minlength="8" maxlength="1500" pattern=".*\S.*">
+
+        
+        <label>Ingredients: </label>
+        <input type="text" name="ingredients" [formControl]="ingredientsInput" required minlength="8" maxlength="2000" pattern=".*\S.*">
+
+        <label>Instructions: </label>
+        <input type="text" name="instructions" [formControl]="instructionsInput" required minlength="8" maxlength="2000" pattern=".*\S.*" >
+
+        <label>Total Time: </label>
+        <input type="text" name="totalTime" [formControl]="totalTimeInput" required minlength="3" maxlength="20" pattern=".*\S.*">
+
+
+        <label>Select Difficulty Level: </label>
+        <select name="difficulty" [formControl]="difficultyInput" required>
+            <option disabled selected>Select level</option>
+            <option value="Easy">Easy</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Hard">Hard</option>
+        </select>
+
+
+        <label>Servings: </label>
+        <input type="number" name="servings" [formControl]="servingsInput" step="1" required min="0" max="900">
+
+
+        <label>Image: </label>
+        <input class="imageInput" type="file" accept="image/*" name="image" required [formControl]="imageInput"  #imageBox>
+
+        <div class="buttons">
+            <a routerLink="/user-page"><button type="button">Retrieve</button></a>
+            <button [disabled]="!recipeForm.valid">Update</button>
+        </div>
+
+    </form>
+
+</div>

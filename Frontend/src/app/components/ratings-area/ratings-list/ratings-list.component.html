@@ -1,0 +1,7 @@
+<div>
+    <h3 *ngIf="ratings?.length > 0">Reviews</h3>
+    <h4 *ngIf="ratings?.length === 0">Be the first one to review this recipe!</h4>
+    <div class="ratings">
+        <app-rating-line *ngFor="let r of ratings" [rating]="r" (deleteRating)="deleteRating($event)"></app-rating-line>
+    </div>
+</div>

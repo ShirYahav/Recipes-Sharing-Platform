@@ -1,0 +1,38 @@
+.home {
+    margin-top: 150px;
+}
+
+.recipesList {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+input {
+    width: 200px; 
+    height: 30px;
+    border-radius: 4px;
+    border: 2px solid var(--secondary-color);
+    font-size: 17px;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: rgb(171, 145, 109);
+    display: flex;
+    margin-left: 7px;
+    font-weight: 300;
+}
+
+::placeholder {
+    color: var(--secondary-color);
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    margin-left: 31px;
+    color: var(--secondary-color);
+}
+
+mat-icon {
+    transform: scale(1.6);
+}

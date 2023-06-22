@@ -1,0 +1,10 @@
+<div class="home">
+    <div class="search">
+        <mat-icon>search</mat-icon>
+        <input type="text" [(ngModel)]="term" placeholder="Look for a recipe" />
+    </div>
+    
+    <div class="recipesList">
+        <app-recipe-card *ngFor="let r of recipes | searchFilter: term" [recipe]="r"></app-recipe-card>
+    </div>
+</div>
