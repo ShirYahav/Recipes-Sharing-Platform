@@ -3,12 +3,12 @@ dotenv.config();
 
 import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
-//import expressRateLimit from "express-rate-limit";
+import expressRateLimit from "express-rate-limit";
 import fileUpload from "express-fileupload";
 import config from "./01-utils/config";
 import errorsHandler from "./02-middleware/errors-handler";
 import preventGarbage from "./02-middleware/prevent-garbage";
-//import sanitize from "./02-middleware/sanitize";
+import sanitize from "./02-middleware/sanitize";
 import ErrorModel from "./03-models/error-model";
 import dal from "./04-dal/dal";
 
@@ -20,11 +20,17 @@ import ratingsController from "./06-controllers/ratings-controller";
 
 const server = express();
 
+server.use("/", expressRateLimit({
+    windowMs: 1000,
+    max: 10000,
+    message: "Are you a hacker?"
+}));
+
 if (config.isDevelopment) server.use(cors());
 server.use(express.json());
 server.use(preventGarbage);
 server.use(fileUpload());
-//server.use(sanitize);
+server.use(sanitize);
 
 server.use("/api", authController);
 server.use("/api", recipesController);
